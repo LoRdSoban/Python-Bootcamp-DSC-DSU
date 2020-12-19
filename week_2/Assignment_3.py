@@ -33,10 +33,11 @@ def GetSchoolInfos():
             first_name = ((schl_detail_parsed["schoolManagement"])[1])["firstName"]
             last_name = ((schl_detail_parsed["schoolManagement"])[1])["lastName"]
             schl_detail["admin_email"] = ((schl_detail_parsed["schoolManagement"])[1])["email"]
+            schl_detail["admin_position"] = ((schl_detail_parsed["schoolManagement"])[1])["position"]
         else:
             first_name = ((schl_detail_parsed["schoolManagement"])[0])["firstName"]
             last_name = ((schl_detail_parsed["schoolManagement"])[0])["lastName"]
-            schl_detail["admin_email"] = ((schl_detail_parsed["schoolManagement"])[0])["email"]
+            schl_detail["admin_position"] = ((schl_detail_parsed["schoolManagement"])[0])["position"]
 
         schl_detail["admin_name"] = (f"{first_name} {last_name}")
         schl_detail["school_tele_num"] = schl_detail_parsed["telephoneNumber"]
@@ -52,7 +53,7 @@ def WriteToCsv():
         csv_writer.writerow(["School Name","Address","Principal/Admin Name","Principal/Admin Position","Principal/Admin Email","School Telephone Number"])
 
         for schl_detail in schl_details:
-             csv_writer.writerow([schl_detail["school_name"],schl_detail["address"],schl_detail["admin_name"],schl_detail["admin_email"],schl_detail["school_tele_num"]])
+             csv_writer.writerow([schl_detail["school_name"],schl_detail["address"],schl_detail["admin_name"],schl_detail["admin_position"],schl_detail["admin_email"],schl_detail["school_tele_num"]])
 
             
 
