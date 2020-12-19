@@ -27,7 +27,7 @@ def GetSchoolInfos():
         schl_detail_parsed = json.loads(schl_detail_raw.content.decode())
 
         schl_detail["school_name"] = schl_detail_parsed["name"]
-        schl_detail["address"] = (schl_detail_parsed["physicalAddress"])["displayAddress"]
+        schl_detail["address"] = (schl_detail_parsed["physicalAddress"])["displayAddress"].replace(',', '')
 
         if len(schl_detail_parsed["schoolManagement"]) > 1:
             first_name = ((schl_detail_parsed["schoolManagement"])[1])["firstName"]
