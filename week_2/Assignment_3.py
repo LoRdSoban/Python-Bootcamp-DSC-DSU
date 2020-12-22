@@ -37,6 +37,7 @@ def GetSchoolInfos():
         else:
             first_name = ((schl_detail_parsed["schoolManagement"])[0])["firstName"]
             last_name = ((schl_detail_parsed["schoolManagement"])[0])["lastName"]
+            schl_detail["admin_email"] = ((schl_detail_parsed["schoolManagement"])[0])["email"]
             schl_detail["admin_position"] = ((schl_detail_parsed["schoolManagement"])[0])["position"]
 
         schl_detail["admin_name"] = (f"{first_name} {last_name}")
